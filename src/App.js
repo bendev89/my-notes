@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import MenuContainer from "./components/menuContainer";
+import NotesContainer from "./components/notesContainer";
+import NoteView from "./components/noteView";
 
 function App() {
+  const mynotes = [
+    {
+      id: 1,
+      title: "Lorem ipsum dolor sit amet 1.",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nihil nostrum dicta hic voluptatibus at magni voluptatem ea tenetur. Voluptas vel sapiente at laboriosam ex.",
+    },
+    {
+      id: 2,
+      title: "Lorem ipsum dolor sit amet 2.",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nihil nostrum dicta hic voluptatibus at magni voluptatem ea tenetur. Voluptas vel sapiente at laboriosam ex.",
+    },
+    {
+      id: 3,
+      title: "Lorem ipsum dolor sit amet 3.",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nihil nostrum dicta hic voluptatibus at magni voluptatem ea tenetur. Voluptas vel sapiente at laboriosam ex.",
+    },
+    {
+      id: 4,
+      title: "Lorem ipsum dolor sit amet 4.",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nihil nostrum dicta hic voluptatibus at magni voluptatem ea tenetur. Voluptas vel sapiente at laboriosam ex.",
+    },
+  ];
+  const [notes, setNotes] = useState(mynotes);
+  console.log(notes);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MenuContainer />
+      <NotesContainer notes={notes} />
+      <NoteView />
     </div>
   );
 }
